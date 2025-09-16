@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
-app.use("/api/portfolo",portfolioRoutes);
+app.use("/api/portfolio",portfolioRoutes);
 
 
 const PORT = process.env.PORT || 5000;

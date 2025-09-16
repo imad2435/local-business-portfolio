@@ -19,11 +19,10 @@ const portfolioItemSchema = new mongoose.Schema(
         
 
     },
-    catagory:{
+    category:{ // Change this...
         type: String,
-        required: [true, "please add a catogory"],
+        required: [true, "please add a category"], // ... and this
         trim: true
-
     }
     },{
         timestamps: true,

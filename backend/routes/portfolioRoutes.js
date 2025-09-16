@@ -1,11 +1,17 @@
 import express from "express";
-import { getPortfolioItems } from "../controllers/portfolioController.js";
+import { createPortfolioItem,
+         getPortfolioItems,
+         updatePortfolioItem,
+         deletePortfolioItem } 
+         from "../controllers/portfolioController.js";
+import  protect  from "../middleware/authMiddleware.js";
 
 const router = express.Router();
-
-// @desc    Get all portfolio items
-// @route   GET /api/portfolio
-// @access  Public
 router.get("/", getPortfolioItems);
+router.post("/", protect, createPortfolioItem)
+router.put("/:id", protect, updatePortfolioItem);
+router.delete("/:id" , protect, deletePortfolioItem);
+
+
 
 export default router;
