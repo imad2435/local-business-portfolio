@@ -4,23 +4,23 @@ import testimonials from "./testimonialcard";
 
 export default function Testimonials() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 py-16 text-center">
+    <section className="py-16 px-6 md:px-20 text-center bg-gray-100">
      
       <div className="mb-12">
-        <h2 className="text-3xl md:text-4xl text-center mt-20 pt-10 font-extrabold text-[#006A67] ">
+        <h2 className="text-3xl md:text-4xl text-center mt-15 pt-10 font-extrabold text-[#006A67] ">
             Testimonials
         </h2>
 
         <div className="mt-2 w-24  h-1 bg-[#4FB7B3] shadow-[0_0_12px_#4FB7B3] mx-auto">
 
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-[#1a2c50] font-serif">
+        <h1 className="mt-20 text-3xl md:text-4xl font-extrabold text-[#1a2c50] font-serif">
           What our clients say about us.
         </h1>
       </div>
 
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
         {testimonials.map((review) => (
           <div
             key={review.id}
@@ -34,7 +34,7 @@ export default function Testimonials() {
             <img
               src={review.image}
               alt={review.name}
-              className="w-16 h-16 rounded-full border border-[#1a2c50] mx-auto"
+              className="w-32 h-32 rounded-full border border-[#1a2c50] mx-auto"
             />
             <p className="text-gray-500 text-sm font-medium hover:text-[#1a2c50] transition">
               {review.name}

@@ -25,7 +25,7 @@ const GalleryReact = () => {
   
     return (
    <>
-   <section className="bg-gray-100">
+   <section className="py-16 px-6 md:px-20 bg-gray-100 ">
     <h2 className="text-3xl md:text-4xl text-center mt-20 pt-10 font-extrabold text-[#006A67] ">
             Portfolio
         </h2>
@@ -77,7 +77,7 @@ const GalleryReact = () => {
 {/*main section*/}
 
  <div className="container mx-auto px-4 ">
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-5">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-5">
     {items.map(({ id, name, image,}) => (
       <div key={id} className="p-4">
         <div className="overflow-hidden rounded-xl shadow-md hover:shadow-xl hover:scale-105 transition duration-300 hover:drop-shadow-[0_8px_20px_rgba(79,183,179,0.7)] bg-[#006A67]">
