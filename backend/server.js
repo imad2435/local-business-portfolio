@@ -1,15 +1,15 @@
-import express from "express";
-import dotenv from "dotenv";
-import connectDB from "./db.js";
-import userRoutes from "./routes/userRoutes.js";
+const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db.js");
+const userRoutes = require("./routes/userRoutes.js");
 
-dotenv.config();
+dotenv.config(); 
 connectDB();
 
 const app = express();
 
 // ✅ Needed to parse JSON request bodies
-app.use(express.json());
+app.use(express.json()); 
 
 app.use("/api/users", userRoutes);
 

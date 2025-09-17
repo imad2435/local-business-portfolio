@@ -12,3 +12,4 @@ export const validateUserRegister = (req, res, next) => {
 
   next();
 };
+
