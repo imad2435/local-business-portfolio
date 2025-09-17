@@ -9,13 +9,18 @@ const categories = ["ALL", "Treatments", "Facilities", "Events"];
 const GalleryReact = () => {
        
     const[items, setitems] = useState(portfoliocard);
-     
+     const [isOpen, setIsOpen] = useState(false);
     const filteritem = (Category) => {
+      if (Category === "ALL") {
+      setitems(portfoliocard);
+    } else {
       const updateitems = portfoliocard.filter((curElement)=>{
         return curElement.category===Category;
       });
       setitems(updateitems);
 }
+       setIsOpen(false); 
+  };
   
   
     return (
@@ -30,15 +35,44 @@ const GalleryReact = () => {
         </div>
 
 
-   <section className=" py-12">
-   <div className="w-full flex justify-center mt-5 mb-8">
-   <div className="flex justify-center gap-10 mb-8 flex-wrap">
-      <button className=" px-10 py-3 rounded-lg bg-orange-500 text-[#F8F8F8] text-2xl font-semibold hover:bg-[#F59E0B] transition"onClick={() => setitems(portfoliocard)}>ALL</button>
-    <button className=" px-10 py-3 rounded-lg bg-orange-500 text-[#F8F8F8]  text-2xl font-semibold hover:bg-[#F59E0B] transition" onClick={()=> filteritem("Facilities")}>Facilities</button>
-     <button className=" px-10 py-3 rounded-lg bg-orange-500 text-[#F8F8F8] text-2xl font-semibold hover:bg-[#F59E0B] transition"onClick={()=> filteritem("Treatments")}>Treatments</button>
-      <button className=" px-10 py-3 rounded-lg bg-orange-500 text-[#F8F8F8] text-2xl font-semibold hover:bg-[#F59E0B] transition"onClick={()=> filteritem("Events")}>Events</button>
-</div>
-   </div>
+   <section className=" py-12 px-6 max-w-6xl mx-auto">
+           <div className="w-full flex justify-end items-center mb-10">
+        <div className="relative inline-block text-left">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-[#F59E0B] transition"
+          >
+            Category ⌄
+          </button>
+
+          {isOpen && (
+            <div className="absolute mt-2 w-48 bg-white shadow-lg rounded-lg z-10">
+              <ul className="py-2 text-gray-700">
+                <li
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => filteritem("ALL")}>
+                  All
+                </li>
+                <li
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => filteritem("Facilities")}>
+                  Facilities
+                </li>
+                <li
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => filteritem("Treatments")}>
+                  Treatments
+                </li>
+                <li
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => filteritem("Events")}>
+                  Events
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
 
 {/*main section*/}
 

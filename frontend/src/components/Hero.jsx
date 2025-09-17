@@ -15,7 +15,7 @@ export default function Hero(){
         <li><Link to="/" className="hover:text-[#4FB7B3]">Home</Link></li>
           <li>Services</li>
          <li><Link to="/portfolio" className="hover:text-[#4FB7B3]">Portfolio</Link></li>
-         <li>Testimonials</li>
+         <li><Link to="/testimonials" className="hover:text-[#4FB7B3]">Testimonials</Link></li>
           <li>About</li>
           <li><Link to="/Contact" className="hover:text-[#4FB7B3]">Contact</Link></li>
         </ul>
