@@ -1,12 +1,10 @@
-import express from "express";
-import { loginUser, registerUser } from "../controllers/userController.js";
-import { validateUserLogin, validateUserRegister } from "../middleware/validateUser.js";
+const express = require("express");
+const { registerUser, loginUser } = require("../controllers/userController");
+const { validateUserRegister, validateUserLogin } = require("../middleware/validateUser");
 
 const router = express.Router();
 
-// ✅ middleware runs before controller
 router.post("/register", validateUserRegister, registerUser);
 router.post("/login", validateUserLogin, loginUser);
 
-
-export default router;
+module.exports = router;

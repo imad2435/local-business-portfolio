@@ -1,4 +1,4 @@
-import PortfolioItems from '../models/portfolioItemModel.js';
+const portfolioItemModel = require("../models/portfolioItemModel.js") ;
 
 // @desc    Get all portfolio items
 // @route   GET /api/portfolio
@@ -85,7 +85,7 @@ const deletePortfolioItem = async (req, res) => {
   }
 };
 
-export {
+module.exports = {
   getPortfolioItems,
   createPortfolioItem,
   updatePortfolioItem,

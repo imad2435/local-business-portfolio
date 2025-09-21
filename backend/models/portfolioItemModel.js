@@ -1,4 +1,4 @@
-import mongoose  from "mongoose";
+const mongoose = require("mongoose");
 
 
 const portfolioItemSchema = new mongoose.Schema(
@@ -30,5 +30,4 @@ const portfolioItemSchema = new mongoose.Schema(
 )
 
 const PortfolioItems = mongoose.model("PortfolioItems", portfolioItemSchema);
-
-export default PortfolioItems;
+module.exports = PortfolioItems;

@@ -1,5 +1,6 @@
-// middleware/validateUser.js
-export const validateUserRegister = (req, res, next) => {
+
+
+const validateUserRegister = (req, res, next) => {
   const { username, email, password } = req.body;
 
   if (!username || !email || !password) {
@@ -15,7 +16,7 @@ export const validateUserRegister = (req, res, next) => {
   next();
 };
 
-export const validateUserLogin = (req, res, next) => {
+const validateUserLogin = (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -25,3 +26,4 @@ export const validateUserLogin = (req, res, next) => {
   next();
 };
 
+module.exports = { validateUserRegister, validateUserLogin };

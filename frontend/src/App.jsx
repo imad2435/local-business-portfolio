@@ -8,6 +8,13 @@ import Testimonials from "./components/testimonials/testimonials";
 
 function App() {
   return (
+    <div className="flex h-screen items-center justify-center bg-gray-900">
+      <h1 className="text-3xl font-bold text-white underline">
+        Frontend Setup Complete with Vite + React + Tailwind!
+        Hasnain cloned the repos
+      </h1>
+    </div>
+  )
     <Router>
        <Hero />
       <Routes>
