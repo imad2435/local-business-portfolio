@@ -31,17 +31,19 @@ const getServices = async (req, res) => {
 }
 
 const deleteService = async (req, res) => {
-    try{
-        const service = await Service.findByIdA(req.params.id);
-        if(!service){
-            return res.status(404).json({ message: "Service not found" });
-        }
-        await service.remove();
-        res.status(200).json({ message: "Service removed" });
-    }catch(err){
-        res.status(500).json({ message: "Server Error" });
+  try {
+    // FIX: Typo in method name
+    const service = await Service.findById(req.params.id);
+    if (!service) {
+      return res.status(404).json({ message: "Service not found" });
     }
-}
+    // FIX: .remove() is deprecated
+    await service.deleteOne();
+    res.status(200).json({ message: "Service removed" });
+  } catch (err) {
+    res.status(500).json({ message: "Server Error", error: err.message });
+  }
+};
 
 const updateService = async (req, res) => {
     try{
