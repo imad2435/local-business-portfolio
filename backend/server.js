@@ -1,19 +1,35 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db'); // Import the DB connection function
+// local-business-portfolio/backend/server.js
 
-// Load environment variables from .env file
+const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db.js");
+const cors = require("cors"); // <-- IMPORT CORS
+
+// Route imports
+const userRoutes = require("./routes/userRoutes.js");
+const portfolioRoutes = require("./routes/portfolioRoutes.js");
+const serviceRoutes = require("./routes/servicesRoutes");
+const messageRoutes = require("./routes/messageRoutes.js"); // <-- IMPORT
+const testimonialRoutes = require("./routes/testimonialRoutes.js"); // <-- IMPORT
+
 dotenv.config();
-
-// Connect to MongoDB
 connectDB();
 
 const app = express();
 
+// MIDDLEWARE
+app.use(cors()); // <-- USE CORS
+app.use(express.json());
+
+// ROUTES
+app.use("/api/users", userRoutes);
+app.use("/api/portfolio", portfolioRoutes);
+app.use("/api/services", serviceRoutes);
+app.use("/api/messages", messageRoutes); // <-- USE
+app.use("/api/testimonials", testimonialRoutes); // <-- USE
+
+// Static folder for uploads
+app.use("/uploads", express.static("uploads"));
+
 const PORT = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
-
-app.listen(PORT, console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
